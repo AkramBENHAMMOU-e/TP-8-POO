@@ -25,13 +25,11 @@ public class ClientConn implements Runnable {
             File file = filePath.toFile();
 
             if (file.exists() && file.isFile()) {
-                // Le fichier existe, on lit son contenu et on l'envoie au client
                 byte[] fileContent = Files.readAllBytes(filePath);
                 out.write(fileContent);
                 out.flush();
                 System.out.println("Fichier '" + fileName + "' envoyé au client.");
             } else {
-                // Le fichier n'existe pas, on envoie un message d'erreur
                 String errorMessage = "Fichier non trouvé : " + fileName;
                 out.write(errorMessage.getBytes());
                 out.flush();

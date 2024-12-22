@@ -3,7 +3,7 @@ import java.net.Socket;
 
 public class Client {
     private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 12345;
+    private static final int SERVER_PORT = 123;
 
     public static void main(String[] args) {
 
@@ -17,7 +17,6 @@ public class Client {
                 String fileName = reader.readLine();
                 writer.println(fileName);
 
-                // Lire la réponse du serveur (contenu du fichier ou message d'erreur)
                 byte[] buffer = new byte[4096];
                 int bytesRead;
                 while ((bytesRead = inputStream.read(buffer)) != -1) {
